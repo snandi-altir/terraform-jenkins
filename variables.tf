@@ -5,6 +5,12 @@ variable "owner" {
 variable "environment" {
 }
 
+variable "amid" {
+}
+variable "acl_type"{
+}
+variable "instance_size" {
+}
 locals {
   tags = {
     owner       = var.owner

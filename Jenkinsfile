@@ -12,13 +12,8 @@ pipeline {
     stages {
         stage('checkout') {
             steps {
-                 script{
-                        dir("terraform")
-                        {
-                            git "https://github.com/snandi-altir/terraform-jenkins.git"
-                        }
-                    }
-                }
+                git branch: 'main', url: 'https://github.com/CodeSagarOfficial/jenkins-scripts.git'
+            }               
             }
 
         stage('Plan') {
@@ -46,7 +41,7 @@ pipeline {
 
         stage('Apply') {
             steps {
-                sh "pwd;cd terraform/ ; terraform apply  -var-file dev.tfvars -input=false tfplan"
+                sh "pwd;cd terraform/ ; terraform apply -input=false tfplan"
             }
         }
     }
